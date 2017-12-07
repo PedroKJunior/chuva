@@ -6,6 +6,8 @@ export class textWrap implements TextWrapInterface{
   constructor(){ }
 
   textWrap(text: string, length: number): Array<string>{
-        return 
+
+    alert("Texto: " + text + " Número: " + length);
+        return
   }
 }
