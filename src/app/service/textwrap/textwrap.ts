@@ -7,26 +7,34 @@ export class textWrap implements TextWrapInterface{
 
   textWrap(text: string, length: number): Array<string>{
 
-    let texto: any = text;
-    let textoArray: string[];
-    let widthText: number = 0;
-    let frase: any;
+    let listWord: Array<string> = new Array()
+    let arrayText: Array<string> = new Array()
+    let phrase: string = ''
 
-    while(widthText < text.length){
+    // Criando o vetor com as palavras da string;
+    listWord = text.split(' ')
 
-      frase = '';
+    while(listWord.length != 0){
+      if( phrase.length < length){
+        if(listWord[0].length <= length){
+          if(phrase.length + listWord[0].length < length){
+            phrase += listWord[0].toString()
+            listWord.shift()
+          }
+        } else {
+          for(let count:number = 0; count < listWord[0].length; count++){
+            if(phrase.length <= length){
+              phrase = listWord[0].charAt[count]
+            }else{
+              arrayText.push(phrase)
+              phrase = ''
+            }
+          }
+        }
 
-      for(let i:number=0; i < length; i++){
-        frase = frase + texto.charAt(i);
-        widthText++;
       }
 
-      texto = texto.split(frase);
-      textoArray.push(frase);
-
     }
-
-    alert("Texto: " + text + ", Número: " + length + ", Numero de arrays: " + textoArray.length);
-        return
+    return
   }
 }
