@@ -19,7 +19,14 @@ export class HomeComponent implements OnInit {
   }
 
   quebra(){
+
     this.arrayText = this._textwrap.textWrap(this.texto, this.numero)
 
+    this.texto = ""
+
+    for(let i:number = 0; i < this.arrayText.length; i++){
+      this.texto += this.arrayText[i]
+      this.texto += "\n"
+    }
   }
 }

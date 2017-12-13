@@ -18,7 +18,7 @@ export class textWrap implements TextWrapInterface{
       let widthWord:number = listWord[0].length
 
       if(phrase == ""){
-        if(widthWord < length){
+        if(widthWord <= length){
           if((phrase.length + widthWord) <= length){
             phrase += listWord[0]
             phrase += " "
@@ -38,9 +38,24 @@ export class textWrap implements TextWrapInterface{
           }
         }
       } else {
-        arrayText.push(phrase.trim())
-        phrase = ""
-        listWord.shift()
+        if(listWord.length != 1){
+          if((phrase.length + listWord[1].length + 1) <= length){
+            phrase += " "
+            phrase += listWord[1]
+            arrayText.push(phrase.trim())
+            listWord.shift()
+            listWord.shift()
+            phrase = ""
+          } else {
+            arrayText.push(phrase.trim())
+            phrase = ""
+            listWord.shift()
+          }
+        } else {
+          arrayText.push(phrase.trim())
+          phrase = ""
+          listWord.shift()
+        }
       }
     }
     console.log(arrayText)
