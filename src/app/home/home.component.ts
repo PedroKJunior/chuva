@@ -8,8 +8,9 @@ import { textWrap } from '../service/textwrap/textwrap';
 })
 export class HomeComponent implements OnInit {
 
-  texto: string;
-  numero: number;
+  texto: string
+  numero: number
+  arrayText: string[] = new Array()
 
   constructor(private _textwrap: textWrap) {
   }
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   quebra(){
-        this._textwrap.textWrap(this.texto, this.numero);
+    this.arrayText = this._textwrap.textWrap(this.texto, this.numero)
 
   }
 }
