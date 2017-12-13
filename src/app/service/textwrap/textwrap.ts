@@ -19,6 +19,10 @@ export class textWrap implements TextWrapInterface{
 
       if(phrase == ""){
         if(widthWord < length){
+          if((phrase.length + widthWord) <= length){
+            phrase += listWord[0]
+            phrase += " "
+          }
         } else{
           countAux = 0
           for(let count:number = 0; count < widthWord; count++){
